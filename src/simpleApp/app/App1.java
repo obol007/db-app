@@ -8,15 +8,14 @@ public class App1 {
 
     public static void main(String[] args) throws SQLException {
 
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql_db?serverTimezone=UTC", "root", "coderslab");
+        try (Connection conn = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/mysql_db?serverTimezone=UTC",
+                        "root", "coderslab")) {
             System.out.println("Connected successful");
-
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Unable to connect");
             e.printStackTrace();
         }
-
 
 
     }
